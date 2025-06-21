@@ -1,0 +1,17 @@
+[project]
+name = "myproject"
+version = "0.1.0"
+description = "Practice Poetry"
+authors = [
+    {name = "JGZ"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy (>=2.3.0,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

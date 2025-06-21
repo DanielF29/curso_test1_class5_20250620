@@ -1,0 +1,78 @@
+corre esto en powershell para poder correr scripts:
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+
+pyenv win, este me funcionó:
+https://github.com/pyenv-win/pyenv-win
+
+pyenv install [version] - instala la version de python especificada
+
+pyenv uninstall [version] - remover la version de python especificada
+
+pyenv global [version] - actualiza la version de python que se usara globalmente
+
+pyenv local [version] - crea un archivo .python-version en el directorio actual que le dice a pyenv que version de python utilizar
+
+pyenv versions - muestra las versiones de python que tenemos disponibles y marca con (*) la actualmente declarada como global en el sistema
+
+python --version  - muestra la version actual de python en el sistema (global)
+
+
+poetry
+https://python-poetry.org/docs/
+
+
+Tools:
+
+venv - Es parte de la libreria estandar de python (>=3.3), te permite crear un ambiente virtual pero no ofrece nada extra como manejo(administracion) de dependencias,
+por lo que tendrias que usar en conjunto con pip, asi que no es ideal.
+
+Virtualenv - una herramienta de terceros, una de las primeras herramientas disponibles para crear ambientes virtuales y parte de la funcionalidad de virtualenv se encuentra incluida en vmf
+
+Pyenv - enfocado especificamente en tener diferentes versiones de python disponibles en tu sistema. Esto es alguna veces util, donde tu sistema opertivo viene con una version antigua de python
+y quieres usar una nueva version pero no quieres que tu sistema operativo potencialmente se rompa por dependencias en la version antigua de python.
+
+Pipenv - Su objetivo es poner juntos PIP, Virtualenv and Pyenv y tener una sola herramienta para hacer todo
+
+Conda - un sistema de gestion de dependencias de paquetes de codigo abierto, especificamente enfocado a ciencia de datos y computacion cientifica. 
+Tambien permite gestionar dependencias en ambientes virtuales e incluso permite la posibilidad de gestion de paquetes no-python
+
+Poetry - Simplifica el proceso de crear ambientes. Una gran mejora respecto a usar pip y requirements.txt
+
+
+Instrucciones:
+
+poetry init - inicializar nuevo ambiente virtual, empieza con esta guia para crear las especificacion para ti
+
+poetry config virtualenvs.in-project true  - El ambiente virtual se crea dentro del directorio del proyecto (.venv)
+
+poetry install - instala el ambiente y las dependencias en el archivo tml/toml
+
+poetry install --no-root -> El proyecto actual se instala en modo editable de forma predeterminada. 
+Si solo desea instalar las dependencias, ejecute el comando de instalación con el indicador --no-root.
+
+poetry shell - abre una ventana de comandos dentro del ambiente virtual, donde se puede correr el codigo
+
+# Apartir de la version 2.0.0, el comando shell no esta instalado por default. Puedes usar
+				poetry self add poetry-plugin-shell
+# para instalar el comando shell
+
+exit - sale del ambiente virtual iniciado
+
+deactivate- en lugar de salir del shell, puedes desactivar el ambiete virtual
+
+se puede remover el ambiente virtual directamente en la ubicacion de donde se encuentra el archivo
+
+poetry env list - lista los ambientes virtuales que estan activos
+
+poetry add [nombre de paquete]@[version](opcional) - agrega la libreria o paqueteria (en su version especificada) en la lista de dependencias (tml/toml) y la instala
+
+poetry add [nombre de paquete]^[version] - agrega la libreria o paqueteria en la lista de dependencias (tml/toml) 
+e instala la version mas reciente que sigue a la version puesta hasta antes de la version mayor, i.e., solo actualiza la version menor (digito intermedio) mas reciente.
+
+poetry add [nombre de paquete]~[version] - solo actualiza la version de parche (ultimo digito) mas reciente
+
+poetry remove [nombre de paquete] - remueve la libreria o paqueteria en la lista de dependencias (tml/toml) y la desinstala
+
+---- actualizar versiones del paquete
+
+poetry version minor -  actualiza el numero de la version de la version menor (digito intermedio)
