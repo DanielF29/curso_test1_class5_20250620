@@ -1,1 +1,1 @@
-# curso_test1_class5_20250620
+# Curso MLOps 20250620 (class 5)
